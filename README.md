@@ -5,6 +5,7 @@
  - polars analysis can be found here [deutsch geospatial mappers](https://github.com/zupzup/rust-polars-example)
  - You can download the geospatial mapping from here [german postcode code to location mapping](https://www.suche-postleitzahl.org/downloads).
  - please see the last commit message and if it says compiled binary then it is completed or else still in development version.
+ - Their github repository[repository link](https://github.com/plzTeam).
 
  ```
  cargo build
