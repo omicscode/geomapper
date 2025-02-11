@@ -3,6 +3,8 @@
  - just put the files in the folder and then just search. No time for reload multiple times. Uses dotenv for automatic file indexing. 
  - application of dotenv for geo spatial command line detusch code mapper. 
  - polars analysis can be found here [deutsch geospatial mappers](https://github.com/zupzup/rust-polars-example)
+ - You can download the geospatial mapping from here [german postcode code to location mapping](https://www.suche-postleitzahl.org/downloads).
+ - please see the last commit message and if it says compiled binary then it is completed or else still in development version.
 
  ```
  cargo build
