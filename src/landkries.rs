@@ -28,13 +28,13 @@ pub fn landkries_mapper(landkries: &str) -> Result<String, Box<dyn Error>> {
             ord: ort_mapper[2].replace(" ", "-").to_string(),
             plz: ort_mapper[3].to_string(),
             landries: ort_mapper[4].replace(" ", "-").to_string(),
-            bundesland: ort_mapper[6].replace(" ", "-").to_string(),
+            bundesland: ort_mapper[5].replace(" ", "-").to_string(),
         })
     }
 
     let mut searched_plz2: Vec<MapperOrt> = Vec::new();
     for i in mapper_ort.iter() {
-        if i.landries == landkries.to_string().replace(" ", "-").to_string() {
+        if i.landries == landkries.to_string() {
             searched_plz2.push(MapperOrt {
                 plz: i.plz.clone(),
                 osmid: i.osmid.clone(),
@@ -44,6 +44,13 @@ pub fn landkries_mapper(landkries: &str) -> Result<String, Box<dyn Error>> {
                 bundesland: i.bundesland.clone(),
             });
         }
+    }
+
+    for i in searched_plz2.iter() {
+        println!(
+            "{}\t{}\t{}\t{}\t{}\t{}",
+            i.plz, i.osmid, i.ags, i.ord, i.landries, i.bundesland
+        );
     }
 
     Ok("The searched results are as follows".to_string())

@@ -43,8 +43,8 @@ pub fn plz_mapper(plz: &str) -> Result<String, Box<dyn Error>> {
         }
     }
 
-    for i in file2read.lines() {
-        let line = i.expect("file not found");
+    for j in file2read.lines() {
+        let line = j.expect("file not found");
         if line.starts_with("osm") {
             continue;
         } else if !line.starts_with("osm") {
@@ -74,15 +74,15 @@ pub fn plz_mapper(plz: &str) -> Result<String, Box<dyn Error>> {
             })
         }
     }
-    for i in mapper_ort.iter() {
-        if i.plz == plz.to_string() {
+    for j in mapper_ort.iter() {
+        if j.plz == plz.to_string() {
             searched_plz2.push(MapperOrt {
-                plz: i.plz.clone(),
-                osmid: i.osmid.clone(),
-                ags: i.ags.clone(),
-                ord: i.ord.clone(),
-                landries: i.landries.clone(),
-                bundesland: i.bundesland.clone(),
+                plz: j.plz.clone(),
+                osmid: j.osmid.clone(),
+                ags: j.ags.clone(),
+                ord: j.ord.clone(),
+                landries: j.landries.clone(),
+                bundesland: j.bundesland.clone(),
             });
         }
     }

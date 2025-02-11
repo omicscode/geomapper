@@ -18,20 +18,22 @@ pub fn osm_mapper(osm: &str) -> Result<String, Box<dyn Error>> {
     let file2read = BufReader::new(file2read);
 
     let mut mapper_ort: Vec<MapperOrt> = Vec::new();
-
     for i in file2read.lines() {
         let line = i.expect("file not found");
-        let ort_mapper: Vec<_> = line.split(",").collect::<Vec<_>>();
-        mapper_ort.push(MapperOrt {
-            osmid: ort_mapper[0].to_string(),
-            ags: ort_mapper[1].to_string(),
-            ord: ort_mapper[2].replace(" ", "-").to_string(),
-            plz: ort_mapper[3].to_string(),
-            landries: ort_mapper[4].replace(" ", "-").to_string(),
-            bundesland: ort_mapper[5].replace(" ", "-").to_string(),
-        })
+        if line.starts_with("osm_id") {
+            continue;
+        } else if !line.starts_with("osm_id") {
+            let ort_mapper: Vec<_> = line.split(",").collect::<Vec<_>>();
+            mapper_ort.push(MapperOrt {
+                osmid: ort_mapper[0].to_string(),
+                ags: ort_mapper[1].to_string(),
+                ord: ort_mapper[2].replace(" ", "-").to_string(),
+                plz: ort_mapper[3].to_string(),
+                landries: ort_mapper[4].replace(" ", "-").to_string(),
+                bundesland: ort_mapper[5].replace(" ", "-").to_string(),
+            });
+        }
     }
-
     let mut searched_plz2: Vec<MapperOrt> = Vec::new();
     for i in mapper_ort.iter() {
         if i.osmid == osm.to_string() {
@@ -44,6 +46,13 @@ pub fn osm_mapper(osm: &str) -> Result<String, Box<dyn Error>> {
                 bundesland: i.bundesland.clone(),
             });
         }
+    }
+
+    for i in searched_plz2.iter() {
+        println!(
+            "{}\t{}\t{}\t{}\t{}\t{}",
+            i.plz, i.osmid, i.ags, i.ord, i.landries, i.bundesland
+        );
     }
 
     Ok("The searched results are as follows".to_string())

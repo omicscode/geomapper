@@ -63,6 +63,19 @@
  21:51:40 gauravsablok@genome deutsch-geo-env-mapper main ? 
      ./target/debug/deutsch-geo-env-mapper einwohner 11957
  01067   01067 Dresden   11957   6.866839        51.06019        13.71117
+ 23:23:53 gauravsablok@genome deutsch-geo-env-mapper main ? 
+    ./target/debug/deutsch-geo-env-mapper osm 1104550                                    130 ↵
+ 78267   1104550 08335001        Aach    Landkreis-Konstanz      Baden-Württemberg
+ The results are: "The searched results are as follows"
+ 23:23:58 gauravsablok@genome deutsch-geo-env-mapper main ? 
+    ./target/debug/deutsch-geo-env-mapper ags 08335001
+ 78267   1104550 08335001        -A-a-c-h-       Landkreis-Konstanz      Baden-Württemberg
+ The results are: "The searched results are as follows"
+ 23:24:02 gauravsablok@genome deutsch-geo-env-mapper main ? 
+  ./target/debug/deutsch-geo-env-mapper plz 78267
+ 78267   78267 Aach      2179    10.648148       47.84445        8.85725
+ 78267   1104550 08335001        Aach    Landkreis-Konstanz      Baden-Württemberg
+ The results are: "The searched results are as follows"
 
  ```
  Gaurav Sablok

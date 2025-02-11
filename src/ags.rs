@@ -46,5 +46,12 @@ pub fn ags_mapper(ags: &str) -> Result<String, Box<dyn Error>> {
         }
     }
 
+    for i in searched_plz2.iter() {
+        println!(
+            "{}\t{}\t{}\t{}\t{}\t{}",
+            i.plz, i.osmid, i.ags, i.ord, i.landries, i.bundesland
+        );
+    }
+
     Ok("The searched results are as follows".to_string())
 }
