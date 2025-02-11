@@ -37,7 +37,8 @@
  ```
 
  ```
- 14:39:45 gauravsablok@genome deutsch-geo-env-mapper main ? ./target/debug/deutsch-geo-env-mapper plz 99955
+ gauravsablok@genome deutsch-geo-env-mapper main ? 
+          ./target/debug/deutsch-geo-env-mapper plz 99955
  99955   99955 Bad Tennstedt     8594    128.78479       51.15747        10.82980
  99955   2895776 16064004        Bad Tennstedt   Unstrut-Hainich-Kreis   Thüringen
  99955   2902811 16064005        Ballhausen      Unstrut-Hainich-Kreis   Thüringen
@@ -49,5 +50,19 @@
  99955   2903166 16064038        Kutzleben       Unstrut-Hainich-Kreis   Thüringen
  99955   2903167 16064045        Mittelsömmern   Unstrut-Hainich-Kreis   Thüringen
  99955   2903171 16064064        Urleben Unstrut-Hainich-Kreis   Thüringen
+ 
+ 21:51:03 gauravsablok@genome deutsch-geo-env-mapper main ? 
+     ./target/debug/deutsch-geo-env-mapper note 01067
+ 01067   01067-Dresden   11957   6.866839        51.06019        13.71117
+ 21:51:22 gauravsablok@genome deutsch-geo-env-mapper main ? 
+     ./target/debug/deutsch-geo-env-mapper longitude 13.71117
+ 01067   01067 Dresden   11957   6.866839        51.06019        13.71117
+ 21:51:33 gauravsablok@genome deutsch-geo-env-mapper main ? 
+     ./target/debug/deutsch-geo-env-mapper latitude 51.06019
+ 01067   01067 Dresden   11957   6.866839        51.06019        13.71117
+ 21:51:40 gauravsablok@genome deutsch-geo-env-mapper main ? 
+     ./target/debug/deutsch-geo-env-mapper einwohner 11957
+ 01067   01067 Dresden   11957   6.866839        51.06019        13.71117
+
  ```
  Gaurav Sablok

@@ -25,16 +25,16 @@ pub fn bundesland_mapper(bundesland: &str) -> Result<String, Box<dyn Error>> {
         mapper_ort.push(MapperOrt {
             osmid: ort_mapper[0].to_string(),
             ags: ort_mapper[1].to_string(),
-            ord: ort_mapper[2].to_string(),
+            ord: ort_mapper[2].replace(" ", "-").to_string(),
             plz: ort_mapper[3].to_string(),
-            landries: ort_mapper[4].to_string(),
-            bundesland: ort_mapper[6].to_string(),
+            landries: ort_mapper[4].replace(" ", ".").to_string(),
+            bundesland: ort_mapper[6].replace(" ", "-").to_string(),
         })
     }
 
     let mut searched_plz2: Vec<MapperOrt> = Vec::new();
     for i in mapper_ort.iter() {
-        if i.bundesland == bundesland.to_string() {
+        if i.bundesland == bundesland.to_string().replace(" ", "-").to_string() {
             searched_plz2.push(MapperOrt {
                 plz: i.plz.clone(),
                 osmid: i.osmid.clone(),

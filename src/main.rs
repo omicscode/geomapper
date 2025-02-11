@@ -38,80 +38,47 @@ fn main() {
     match &argsparse.command {
         Commands::Plz { plz } => {
             let command = plz_mapper(plz).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Note { note } => {
             let command = note_mapper(note).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Einwohner { einwohner } => {
             let command = einwohner_mapper(einwohner).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Qkm { qkm } => {
             let command = qkm_mapper(qkm).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Latitude { lat } => {
             let command = latitude_mapper(lat).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Longitude { lon } => {
             let command = longitude_mapper(lon).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::OSM { osm_id } => {
             let command = osm_mapper(osm_id).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Ags { ags } => {
             let command = ags_mapper(ags).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Ord { ord } => {
             let command = ord_mapper(ord).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Landkreis { landkries } => {
             let command = landkries_mapper(landkries).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
         Commands::Bundesland { bundesland } => {
             let command = bundesland_mapper(bundesland).unwrap();
-            println!(
-                "The target from the corresponding hmm files have been filtered: {:?}",
-                command
-            );
+            println!("The results are: {:?}", command);
         }
     }
 }

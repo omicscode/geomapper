@@ -34,7 +34,7 @@ pub fn plz_mapper(plz: &str) -> Result<String, Box<dyn Error>> {
                 mapper_de.push(MapperDE {
                     plz: mapper[0].to_string(),
                     note: mapper[1].to_string(),
-                    einwohner: mapper[2].to_string(),
+                    einwohner: mapper[2].replace("/", "-").to_string(),
                     qkm: mapper[3].to_string(),
                     lat: mapper[4].to_string(),
                     lon: mapper[5].to_string(),
@@ -52,10 +52,10 @@ pub fn plz_mapper(plz: &str) -> Result<String, Box<dyn Error>> {
             mapper_ort.push(MapperOrt {
                 osmid: ort_mapper[0].to_string(),
                 ags: ort_mapper[1].to_string(),
-                ord: ort_mapper[2].to_string(),
+                ord: ort_mapper[2].replace(" ", "-").to_string(),
                 plz: ort_mapper[3].to_string(),
-                landries: ort_mapper[4].to_string(),
-                bundesland: ort_mapper[5].to_string(),
+                landries: ort_mapper[4].replace(" ", "-").to_string(),
+                bundesland: ort_mapper[5].replace(" ", "-").to_string(),
             })
         }
     }

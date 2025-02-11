@@ -31,7 +31,7 @@ pub fn qkm_mapper(qkm: &str) -> Result<String, Box<dyn Error>> {
                 mapper_de.push(MapperDE {
                     plz: mapper[0].to_string(),
                     note: mapper[1].to_string(),
-                    einwohner: mapper[2].to_string(),
+                    einwohner: mapper[2].replace("/", "-").to_string(),
                     qkm: mapper[3].to_string(),
                     lat: mapper[4].to_string(),
                     lon: mapper[5].to_string(),
@@ -40,6 +40,18 @@ pub fn qkm_mapper(qkm: &str) -> Result<String, Box<dyn Error>> {
         }
     }
 
+    for i in mapper_de.iter() {
+        if i.qkm == qkm.to_string() {
+            searched_plz1.push(MapperDE {
+                plz: i.plz.clone(),
+                note: i.note.clone(),
+                einwohner: i.einwohner.clone(),
+                qkm: i.qkm.clone(),
+                lat: i.lat.clone(),
+                lon: i.lon.clone(),
+            })
+        }
+    }
     for i in searched_plz1.iter() {
         println!(
             "{}\t{}\t{}\t{}\t{}\t{}",

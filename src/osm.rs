@@ -25,10 +25,10 @@ pub fn osm_mapper(osm: &str) -> Result<String, Box<dyn Error>> {
         mapper_ort.push(MapperOrt {
             osmid: ort_mapper[0].to_string(),
             ags: ort_mapper[1].to_string(),
-            ord: ort_mapper[2].to_string(),
+            ord: ort_mapper[2].replace(" ", "-").to_string(),
             plz: ort_mapper[3].to_string(),
-            landries: ort_mapper[4].to_string(),
-            bundesland: ort_mapper[6].to_string(),
+            landries: ort_mapper[4].replace(" ", "-").to_string(),
+            bundesland: ort_mapper[5].replace(" ", "-").to_string(),
         })
     }
 
