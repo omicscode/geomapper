@@ -35,4 +35,6 @@ pub enum Commands {
     Landkreis { landkries: String },
     /// search according to the bundesland
     Bundesland { bundesland: String },
+    /// general pattern search
+    GeneralPattern { generalpattern: String },
 }

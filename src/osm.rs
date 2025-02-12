@@ -1,4 +1,5 @@
 use crate::mapper::MapperOrt;
+use crate::mapper::MapperPrint;
 use dotenv::dotenv;
 use std::error::Error;
 use std::fs::File;
@@ -27,31 +28,45 @@ pub fn osm_mapper(osm: &str) -> Result<String, Box<dyn Error>> {
             mapper_ort.push(MapperOrt {
                 osmid: ort_mapper[0].to_string(),
                 ags: ort_mapper[1].to_string(),
-                ord: ort_mapper[2].replace(" ", "-").to_string(),
+                ord: ort_mapper[2..3]
+                    .into_iter()
+                    .map(|x| x.to_string())
+                    .collect::<Vec<_>>(),
                 plz: ort_mapper[3].to_string(),
-                landries: ort_mapper[4].replace(" ", "-").to_string(),
-                bundesland: ort_mapper[5].replace(" ", "-").to_string(),
+                landkries: ort_mapper[4..5]
+                    .into_iter()
+                    .map(|x| x.to_string())
+                    .collect::<Vec<_>>(),
+                bundesland: ort_mapper[ort_mapper.len() - 1..ort_mapper.len()]
+                    .into_iter()
+                    .map(|x| x.to_string())
+                    .collect::<Vec<_>>(),
             });
         }
     }
-    let mut searched_plz2: Vec<MapperOrt> = Vec::new();
+    let mut searched_plz2: Vec<MapperPrint> = Vec::new();
     for i in mapper_ort.iter() {
         if i.osmid == osm.to_string() {
-            searched_plz2.push(MapperOrt {
+            searched_plz2.push(MapperPrint {
                 plz: i.plz.clone(),
                 osmid: i.osmid.clone(),
                 ags: i.ags.clone(),
-                ord: i.ord.clone(),
-                landries: i.landries.clone(),
-                bundesland: i.bundesland.clone(),
+                ord: i.ord.clone().join("").to_string(),
+                landkries: i.landkries.clone().join("").to_string(),
+                bundesland: i.bundesland.clone().join("").to_string(),
             });
         }
     }
 
+    println!(
+        "{}\t{}\t{}\t{}\t{}\t{}",
+        "plz", "osmid", "ags", "ord", "landkries", "bundesland"
+    );
+
     for i in searched_plz2.iter() {
         println!(
-            "{}\t{}\t{}\t{}\t{}\t{}",
-            i.plz, i.osmid, i.ags, i.ord, i.landries, i.bundesland
+            "{}\t{}\t{}\t{:?}\t{:?}\t{:?}",
+            i.plz, i.osmid, i.ags, i.ord, i.landkries, i.bundesland
         );
     }
 

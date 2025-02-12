@@ -1,5 +1,6 @@
 use crate::mapper::MapperDE;
 use crate::mapper::MapperOrt;
+use crate::mapper::MapperPrint;
 use dotenv::dotenv;
 use std::error::Error;
 use std::fs::File;
@@ -52,16 +53,25 @@ pub fn plz_mapper(plz: &str) -> Result<String, Box<dyn Error>> {
             mapper_ort.push(MapperOrt {
                 osmid: ort_mapper[0].to_string(),
                 ags: ort_mapper[1].to_string(),
-                ord: ort_mapper[2].replace(" ", "-").to_string(),
+                ord: ort_mapper[2..3]
+                    .into_iter()
+                    .map(|x| x.to_string())
+                    .collect::<Vec<_>>(),
                 plz: ort_mapper[3].to_string(),
-                landries: ort_mapper[4].replace(" ", "-").to_string(),
-                bundesland: ort_mapper[5].replace(" ", "-").to_string(),
-            })
+                landkries: ort_mapper[4..5]
+                    .into_iter()
+                    .map(|x| x.to_string())
+                    .collect::<Vec<_>>(),
+                bundesland: ort_mapper[ort_mapper.len() - 1..ort_mapper.len()]
+                    .into_iter()
+                    .map(|x| x.to_string())
+                    .collect::<Vec<_>>(),
+            });
         }
     }
 
     let mut searched_plz1: Vec<MapperDE> = Vec::new();
-    let mut searched_plz2: Vec<MapperOrt> = Vec::new();
+    let mut searched_plz2: Vec<MapperPrint> = Vec::new();
     for i in mapper_de.iter() {
         if i.plz == plz.to_string() {
             searched_plz1.push(MapperDE {
@@ -76,27 +86,36 @@ pub fn plz_mapper(plz: &str) -> Result<String, Box<dyn Error>> {
     }
     for j in mapper_ort.iter() {
         if j.plz == plz.to_string() {
-            searched_plz2.push(MapperOrt {
+            searched_plz2.push(MapperPrint {
                 plz: j.plz.clone(),
                 osmid: j.osmid.clone(),
                 ags: j.ags.clone(),
-                ord: j.ord.clone(),
-                landries: j.landries.clone(),
-                bundesland: j.bundesland.clone(),
+                ord: j.ord.clone().join("").to_string(),
+                landkries: j.landkries.clone().join("").to_string(),
+                bundesland: j.bundesland.clone().join("").to_string(),
             });
         }
     }
 
+    println!(
+        "{}\t{}\t{}\t{}\t{}\t{}",
+        "plz", "note", "einwohner", "qkm", "latitude", "longitude"
+    );
     for i in searched_plz1.iter() {
         println!(
             "{}\t{}\t{}\t{}\t{}\t{}",
             i.plz, i.note, i.einwohner, i.qkm, i.lat, i.lon
         );
     }
+
+    println!(
+        "{}\t{}\t{}\t{}\t{}\t{}",
+        "plz", "osmid", "ags", "ord", "landkries", "bundesland"
+    );
     for j in searched_plz2.iter() {
         println!(
-            "{}\t{}\t{}\t{}\t{}\t{}",
-            j.plz, j.osmid, j.ags, j.ord, j.landries, j.bundesland
+            "{}\t{}\t{}\t{:?}\t{:?}\t{:?}",
+            j.plz, j.osmid, j.ags, j.ord, j.landkries, j.bundesland
         );
     }
 

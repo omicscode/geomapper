@@ -2,6 +2,7 @@ mod ags;
 mod args;
 mod bundesland;
 mod einwohner;
+mod generalpattern;
 mod landkries;
 mod lat;
 mod lon;
@@ -16,6 +17,7 @@ use crate::args::CommandParse;
 use crate::args::Commands;
 use crate::bundesland::bundesland_mapper;
 use crate::einwohner::einwohner_mapper;
+use crate::generalpattern::generalpattern_mapper;
 use crate::landkries::landkries_mapper;
 use crate::lat::latitude_mapper;
 use crate::lon::longitude_mapper;
@@ -79,6 +81,10 @@ fn main() {
         Commands::Bundesland { bundesland } => {
             let command = bundesland_mapper(bundesland).unwrap();
             println!("The results are: {:?}", command);
+        }
+        Commands::GeneralPattern { generalpattern } => {
+            let command = generalpattern_mapper(generalpattern).unwrap();
+            println!(" The results are: {:?}", command);
         }
     }
 }
