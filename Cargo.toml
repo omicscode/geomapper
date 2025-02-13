@@ -2,7 +2,13 @@
 name = "deutsch-geo-env-mapper"
 version = "0.1.0"
 edition = "2021"
+readme = "README.md"
+license = "MIT"
+description = "geomapper for deutsch code"
+homepage = "https://github.com/sciencegenome/deutsch-geo-env-mapper"
+repository = "https://github.com/sciencegenome/deutsch-geo-env-mapper"
 
 [dependencies]
 clap = { version = "4.5.28", features = ["derive"] }
 dotenv = { version = "0.15.0", features = ["clap", "cli"] }
+tabled = "0.18.0"
