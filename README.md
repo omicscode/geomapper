@@ -1,4 +1,7 @@
-# deutsch-geo-env-mapper
+# geomapper
+
+<img src="https://github.com/IBCHgenomic/geomapper/blob/main/geomapper.png" width="350" />
+
  - rust geospatial mapper using dotenv for deutsch code mapper. 
  - just put the files in the folder with the same naming convention.
  - Geospatial mapping data can be downloaded from here [german postcode code to location mapping](https://www.suche-postleitzahl.org/downloads).
