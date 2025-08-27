@@ -11,7 +11,8 @@ use std::io::{BufRead, BufReader};
  Date: 2025-2-11
 */
 
-pub fn osm_mapper(osm: &str) -> Result<String, Box<dyn Error>> {
+#[tokio::main]
+pub async fn osm_mapper(osm: &str) -> Result<String, Box<dyn Error>> {
     dotenv().ok();
 
     let file2 = std::env::var("file2").expect("file not present");

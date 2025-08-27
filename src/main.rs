@@ -27,6 +27,8 @@ use crate::osm::osm_mapper;
 use crate::plz::plz_mapper;
 use crate::qkm::qkm_mapper;
 use clap::Parser;
+use figlet_rs::FIGfont;
+
 /*
 * Author Gaurav Sablok
 * SLB Potsdam
@@ -36,6 +38,10 @@ use clap::Parser;
 * */
 
 fn main() {
+    let standard_font = FIGfont::standard().unwrap();
+    let figure = standard_font.convert("geoMapper");
+    assert!(figure.is_some());
+    println!("{}", figure.unwrap());
     let argsparse = CommandParse::parse();
     match &argsparse.command {
         Commands::Plz { plz } => {
@@ -62,7 +68,7 @@ fn main() {
             let command = longitude_mapper(lon).unwrap();
             println!("The results are: {:?}", command);
         }
-        Commands::OSM { osm_id } => {
+        Commands::Osm { osm_id } => {
             let command = osm_mapper(osm_id).unwrap();
             println!("The results are: {:?}", command);
         }

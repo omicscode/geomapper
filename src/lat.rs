@@ -10,8 +10,8 @@ use std::io::{BufRead, BufReader};
  Date: 2025-2-11
 
 */
-
-pub fn latitude_mapper(lat: &str) -> Result<String, Box<dyn Error>> {
+#[tokio::main]
+pub async fn latitude_mapper(lat: &str) -> Result<String, Box<dyn Error>> {
     dotenv().ok();
 
     let file1 = std::env::var("file1").expect("file not present");

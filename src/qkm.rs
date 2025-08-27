@@ -11,7 +11,8 @@ use std::io::{BufRead, BufReader};
 
 */
 
-pub fn qkm_mapper(qkm: &str) -> Result<String, Box<dyn Error>> {
+#[tokio::main]
+pub async fn qkm_mapper(qkm: &str) -> Result<String, Box<dyn Error>> {
     dotenv().ok();
 
     let file1 = std::env::var("file1").expect("file not present");

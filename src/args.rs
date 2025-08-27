@@ -1,9 +1,13 @@
 use clap::{Parser, Subcommand};
 #[derive(Debug, Parser)]
 #[command(
-    name = "deutsch-geomapper",
+    name = "geomapper",
     version = "1.0",
-    about = "deutsch geo-mapper"
+    about = "geomapper, a geomapper for geman geographical data
+   ************************************************
+   Gaurav Sablok, SLB Potsdam, Germany
+   Email: gbiogenomics@gmail.com
+   ************************************************ "
 )]
 pub struct CommandParse {
     /// subcommands for the specific actions
@@ -26,7 +30,7 @@ pub enum Commands {
     /// search according to the longitude
     Longitude { lon: String },
     /// search according to the osm
-    OSM { osm_id: String },
+    Osm { osm_id: String },
     /// search according to the ags
     Ags { ags: String },
     ///search according to the ort

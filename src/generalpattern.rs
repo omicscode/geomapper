@@ -10,7 +10,8 @@ use std::io::{BufRead, BufReader};
 
 */
 
-pub fn generalpattern_mapper(path: &str) -> Result<String, Box<dyn Error>> {
+#[tokio::main]
+pub async fn generalpattern_mapper(path: &str) -> Result<String, Box<dyn Error>> {
     dotenv().ok();
 
     let file1 = std::env::var("file1").expect("file not present");
