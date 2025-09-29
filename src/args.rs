@@ -5,8 +5,8 @@ use clap::{Parser, Subcommand};
     version = "1.0",
     about = "geomapper, a geomapper for geman geographical data
    ************************************************
-   Gaurav Sablok, SLB Potsdam, Germany
-   Email: gbiogenomics@gmail.com
+   Author Gaurav Sablok,
+   Email: codeprog@icloud.com
    ************************************************ "
 )]
 pub struct CommandParse {
