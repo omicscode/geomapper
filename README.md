@@ -122,7 +122,4 @@ Options:
  "2784842 08335043 Konstanz 78465 Landkreis Konstanz Baden-Württemberg
  ```
 Gaurav Sablok \
-Instytut Chemii Bioorganicznej \
-Polskiej Akademii Nauk \
-ul. Noskowskiego 12/14 | 61-704, Poznań \
-Poland
+codeprog@icloud.com

@@ -30,12 +30,9 @@ use clap::Parser;
 use figlet_rs::FIGfont;
 
 /*
-* Author Gaurav Sablok
-* SLB Potsdam
-  Date: 2025-2-11
-*
-* a geospatial data analyzer for the deutsch mapping codes using the dotenv method.
-* */
+Author Gaurav Sablok,
+Email: codeprog@icloud.com
+*/
 
 fn main() {
     let standard_font = FIGfont::standard().unwrap();

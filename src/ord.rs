@@ -6,9 +6,8 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 /*
- Author Gaurav Sablok
- SLB Potsdam
- Date: 2025-2-11
+Author Gaurav Sablok,
+Email: codeprog@icloud.com
 */
 
 #[tokio::main]

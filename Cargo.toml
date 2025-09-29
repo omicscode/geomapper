@@ -1,12 +1,12 @@
 [package]
 name = "geomapper"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 readme = "README.md"
 license = "MIT"
 description = "geomapper for German geographical localization"
-homepage = "https://github.com/genomicssport/geomapper"
-repository = "https://github.com/genomicssport/geomapper"
+homepage = "https://github.com/omicscode/geomapper"
+repository = "https://github.com/omicscode/geomapper"
 
 [dependencies]
 clap = { version = "4.5.28", features = ["derive"] }
